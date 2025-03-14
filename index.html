@@ -2,10 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=descript://start">
   <title>Redirecting...</title>
+  <script>
+    window.onload = function() {
+      // Get query parameters from the URL (e.g., ?code=XYZ&state=ABC)
+      const params = window.location.search;
+      // Redirect to your custom URL scheme, appending the parameters
+      window.location.href = "descript://start" + params;
+    };
+  </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="descript://start">click here</a>.</p>
+  <p>If you are not redirected automatically, <a id="redirectLink" href="#">click here</a>.</p>
+  <script>
+    // Set the fallback link with query parameters as well
+    const params = window.location.search;
+    document.getElementById('redirectLink').href = "descript://start" + params;
+  </script>
 </body>
 </html>
